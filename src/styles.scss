@@ -1,0 +1,330 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import 'ngx-toastr/toastr';
+// الاصل
+// :root {
+//   // light mode
+//   --main-color: #0aad0a;
+//   --light-color: #f0f3f2;
+//   --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+//     rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+//     rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+//   --font-family: "Encode Sans Expanded", sans-serif;
+//   --rating-color: #ffc908;
+//   --light-color: #f0f3f2;
+//   --focus-shadow: rgba(0, 140, 186, 0.4);
+//   --accent-color: #ff6347;
+//   --hover-color: #e04e37;
+//   --badge-bg: #ffcc00;
+//   --cart-active-bg: rgba(0, 140, 186, 0.1);
+
+//   // Dark Mode Colors
+//   --main-bg-dark: #121212;
+//   --card-bg-dark: #1e1e1e;
+//   --text-color-dark: #e0e0e0;
+//   --link-hover-dark: #ffa07a;
+//   --button-bg-dark: #333;
+//   --input-bg-dark: #444;
+// }
+// body {
+//   font-family: var(--font-family) !important;
+// }
+
+:root {
+  /* Light Mode Colors */
+  --main-color: #0aad0a;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color:  #ffa500;
+  --accent-color: #e04e37;
+  --hover-color: #cc3d30;
+  --badge-bg: #ffcc00;
+  --cart-active-bg: rgba(0, 140, 186, 0.1);
+  --focus-shadow: rgba(0, 140, 186, 0.4);
+  
+  /* Dark Mode Colors */
+  --main-bg-dark: #121212;
+  --card-bg-dark: #1e1e1e;
+  --text-color-dark: #e0e0e0;
+  --link-dark: #0aad0a;
+  --link-hover-dark: #ffa07a;
+  --button-bg-dark: #0AAD0A;
+  --input-bg-dark: white;
+}
+body {
+  font-family: var(--font-family) !important;
+  // background-color: var(--light-color);
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+  background-color: var(--main-bg-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .navbar, 
+body.dark-mode .card-content, 
+body.dark-mode .product, 
+body.dark-mode .dropdown-menu {
+  background-color: var(--card-bg-dark) !important;
+}
+
+body.dark-mode a,
+body.dark-mode a:hover {
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .active-link, 
+body.dark-mode .btn-main {
+  background-color: var(--button-bg-dark) !important;
+  color: var(--text-color-dark) !important;
+}
+
+body.dark-mode input, 
+body.dark-mode .form-control {
+  background-color: var(--input-bg-dark) !important;
+  color: var(--text-color-dark);
+}
+
+
+
+body.dark-mode .product:hover {
+  box-shadow: 0 0 10px #555;
+}
+
+body.dark-mode .owl-theme .owl-dots .owl-dot span {
+  background: var(--text-color-dark);
+}
+
+body.dark-mode .owl-theme .owl-dots .owl-dot.active span {
+  background: var(--link-hover-dark);
+}
+body.dark-mode .cart-badge {
+  background-color: var(--card-bg-dark);
+  
+}
+body.dark-mode .rating-colo {
+  // background-color: var(--card-bg-dark);
+  background-color:var(--button-bg-dark) ;
+}
+.rating-color {
+  color: var(--rating-color); /* لون النجوم الجديد */
+}
+// Dark mode End
+
+.nav-link {
+  transition: unset !important;
+}
+.active-link {
+  background-color: var(--main-color) !important;
+  color: var(--light-color) !important;
+  border-radius: 5px;
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+.cr {
+  cursor: pointer;
+}
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.product {
+  border-radius: 7px;
+  border: solid 1px var(--main-color);
+  transition: box-shadow 0.5s;
+  overflow: hidden;
+}
+.product .btn-main {
+  transform: translateY(120%);
+  transition: transform 0.7s ;
+}
+.product:hover .btn-main {
+  transform: translateY(0);
+ 
+}
+.product:hover {
+  box-shadow: 0 0 10px #11bd1168;
+}
+
+.font-sm {
+  font-size: 12px;
+}
+.text-main {
+  color: var(--main-color);
+}
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+.bg-main-light {
+  background-color: #F8F9FA !important;
+}
+body.dark-mode .bg-main-light {
+  background-color: var(--card-bg-dark) !important; /* لون الفوتر في الـ Dark Mode يتطابق مع الـ Navbar */
+}
+
+
+.btn-main {
+  background-color: var(--main-color);
+  padding: 7px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+.btn-main:hover {
+  background-color: #11bd11;
+}
+
+.min-55vh {
+  min-height: 55vh;
+}
+
+
+
+
+.nav-link:focus {
+  outline: none;
+  background-color: var(--cart-active-bg); 
+  color: var(--accent-color);
+  box-shadow: 0 0 5px var(--focus-shadow); 
+  // border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.cart-link {
+  color: var(--main-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cart-link:focus,
+.cart-link.active-link {
+  color: var(--accent-color);
+  transform: scale(1.05); 
+  padding-block: 15px ;
+}
+.cart-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.05); 
+}
+
+.cart-link:focus {
+  outline: none;
+  // box-shadow: 0 0 8px var(--focus-shadow);
+  background-color: var(--cart-active-bg); 
+  // height: 100% !important;
+  padding-block: 15px ;
+}
+
+
+.cart-badge {
+  background-color: var(--badge-bg);
+  color: #ffffff;
+  font-size: 0.67rem;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.cart-link:hover .cart-badge,
+.cart-link:focus .cart-badge,
+.cart-link.active-link .cart-badge {
+  background-color: var(--accent-color);
+}
+
+.card-container {
+  padding: 1rem;
+}
+
+.card-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+img {
+  border-radius: 8px 8px 0 0;
+}
+
+h3 {
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--main-color);
+}
+
+.cbg {
+  transform: scale(1);
+  padding: 0.8rem;
+  transition:  transform 0.4s;
+  border-radius: 20px;
+}
+.cbg:hover {
+  transform: scale(1.05);
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 12px;
+  background: #D6D6D6;
+  display: block;
+  visibility: visible;
+  transition: opacity 200ms ease;
+  border-radius: 27px;
+  zoom: 0.75 ;
+//  background-color: black;
+
+
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: black;
+}
+.owl-carousel .item {
+  transition: transform 0.5s ease-in-out;
+}
+.cart-badge {
+  transition: transform 0.2s;
+}
+.cart-badge:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+

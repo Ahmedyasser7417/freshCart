@@ -1,0 +1,167 @@
+<!-- static slider -->
+<section>
+
+    <div class="row g-0">
+        <div class="col-md-12 p-2">
+            <div class="mt-2  ">
+                <owl-carousel-o [options]="customOptionsmain" class=" px-2">
+                    <ng-template carouselSlide>
+                        <div class="back  position-relative">
+                            <img src="./../../assets/images/11.jpg" height="390px" class="w-100" alt="" class="rounded-0">
+                            <div class="overlay position-absolute w-100 h-100 bg-dark opacity-50"></div>
+                            <div class="position-absolute w-100 h-100 d-flex justify-content-center align-items-center flex-column text-center ">
+                                <div class="w-100 ">
+                                    <h2 class="hh">
+                                        {{"home.welcometofresh" |translate}}
+                                        </h2>
+                                </div>
+                                <div class="w-100">
+                                    <p >
+                                        {{"home.discover" |translate}}
+                                    </p >
+                                </div>
+                                <div >
+                                    <a routerLink="/products" class=" b">{{"home.shopnow" |translate}}</a>
+                                </div>
+                               
+                               
+                             
+                            </div>
+                        </div>
+                        
+                        </ng-template>  
+                        <ng-template carouselSlide>
+                            <div class="back  position-relative ">
+                                <img src="./../../assets/images/22.jpeg" height="390px" class="w-100" alt="" class="rounded-0">
+                                <div class="overlay position-absolute w-100 h-100 bg-dark opacity-50"></div>
+                                <div class="position-absolute w-100 h-100 d-flex justify-content-center align-items-center flex-column text-center ">
+                                    <div class="w-100 ">
+                                        <h2 class="hh">
+                                            {{"home.checkour" |translate}}
+                                            </h2>
+                                    </div>
+                                    <div class="w-100">
+                                        <p >
+                                            {{"home.exploreour" |translate}}
+                                        </p >
+                                    </div>
+                                    <div >
+                                        <a routerLink="/categories" class=" b"> {{"home.shopnow" |translate}}  </a>
+                                    </div>
+                                   
+                                   
+                                 
+                                </div>
+                            </div>
+                            
+                            </ng-template>  
+                            <ng-template carouselSlide>
+                                <div class="back  position-relative ">
+                                    <img src="./../../assets/images/33.webp" height="390px" class="w-100" alt="" class="rounded-0">
+                                    <div class="overlay position-absolute w-100 h-100 bg-dark opacity-50"></div>
+                                    <div class="position-absolute w-100 h-100 d-flex justify-content-center align-items-center flex-column text-center ">
+                                        <div class="w-100 ">
+                                            <h2 class="hh">
+                                                {{"home.popu" |translate}}
+                                                </h2>
+                                        </div>
+                                        <div class="w-100">
+                                            <p >
+                                               {{"home.dontmiss" |translate}}
+                                            </p >
+                                        </div>
+                                        <div >
+                                            <a routerLink="/brands" class=" b ">{{"home.shopnow" |translate}}</a>
+                                        </div>
+                                       
+                                       
+                                     
+                                    </div>
+                                </div>
+                                
+                                </ng-template>  
+                    
+                 
+                  </owl-carousel-o>
+               
+            </div>
+        </div>
+   
+    </div>
+
+
+   
+</section>
+<!-- categories -->
+<section class="my-2">
+    <h2>{{"home.popularcategories" | translate}}</h2>
+    <owl-carousel-o [options]="customOptionscat">
+
+       @for (cat of categorylist() ; track cat._id) {
+
+        <ng-template carouselSlide >
+         <div [routerLink]="['/catdetails', cat._id]" class="m-1 product p-2  d-flex align-items-center justify-content-center flex-wrap">
+            <div class="w-100">
+                <img [src]="cat.image" class="w-100 cbg" height="300px" [alt]="cat.name" >
+            <h3 class="h6 text-black">{{cat.name}}</h3>
+            </div>
+            <div class="w-100 ">
+                <button class="btn-main w-100">{{"home.seeproduct"|translate}}</button>
+            </div>
+         </div>
+          </ng-template>
+       }
+    
+      </owl-carousel-o>
+      
+</section>
+<!-- products -->
+<section class="mb-4">
+    <h2>{{"home.popularProducts" |translate}}:</h2>
+    <input [(ngModel)]="text" type="search" [placeholder]="'home.search' |translate" class="w-50 form-control  mx-auto my-2">
+    <div class="row g-3">
+   @for (product of productlist().slice(this.startIndex,this.endIndex) | search : text; track product.id) {
+    <div class="col-md-2">
+        <div class="product p-2">
+            <div [routerLink]="['/details', product._id]">
+                <img [src]="product.imageCover" class="w-100" [alt]="product.title">
+                <h3 class="small text-main">{{product.category.name |trimtext:1}}</h3>
+                <h4 class="h6">{{product.title| trimtext :2}}</h4>
+            </div>
+            
+
+            <div class="d-flex justify-content-between align-items-center">
+<span>{{product.price}} {{"home.egp" |translate}}</span>
+<div>
+
+    @for (num of [1,2,3,4,5].slice(0 , product.ratingsAverage ) ; track $index) {
+        <span><i class="fas fa-star rating-color"></i></span>
+    }
+@if ( product.ratingsAverage % 1 !== 0) {
+    <i class="fa-solid fa-star-half-stroke rating-color"></i>
+}
+    
+<span class="text-muted">{{product.ratingsAverage}}</span>
+</div>
+            </div>
+        <button class="btn-main w-100" (click)="addcart(product.id)">{{"home.addtocart" |translate}}</button>
+
+        </div>
+    </div>
+   }
+
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="m-auto my-2">
+            @if (totalPages() > 1) {
+                <button class="btn btn-main mx-1"
+                *ngFor="let page of [].constructor(totalPages()); let i = index"
+                [class.active]="currentPage() === i + 1"
+                (click)="changePage(i + 1)">
+                {{ i + 1 }}
+              </button>
+            }
+        </div>
+        
+       </div>
+</section>
