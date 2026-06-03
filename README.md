@@ -181,9 +181,3 @@ npm run serve:ssr
 
 - **Ahmed Yasser**\
   [GitHub](https://github.com/Ahmedyasser7417) | [LinkedIn](https://linkedin.com/in/ahmedyasser2222)
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
