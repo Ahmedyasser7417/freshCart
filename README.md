@@ -11,7 +11,7 @@ FreshCart is a robust and fully-featured e-commerce web application built with A
 
 ## 🌟 Live Demo
 
-🚀 [![Live Demo](https://img.shields.io/badge/Demo-Live-blue?logo=vercel)](https://ecommerce-eight-beta-30.vercel.app/)
+🚀 [![Live Demo](https://img.shields.io/badge/Demo-Live-blue?logo=vercel)](https://fresh-cart-nine-jet.vercel.app/)
 Explore the full functionality of the app directly in your browser.
 
 ## 📸 Screenshots
@@ -21,9 +21,7 @@ Explore the full functionality of the app directly in your browser.
 | ![11](/screenshots/11.png) | ![12](/screenshots/12.png) |
 |  ![1](/screenshots/1.png)  |  ![2](/screenshots/2.png)  |
 |  ![3](/screenshots/3.png)  |  ![4](/screenshots/4.png)  |
-|  ![5](/screenshots/5.png)  |  ![6](/screenshots/6.png)  |
-|  ![7](/screenshots/7.png)  |  ![8](/screenshots/8.png)  |
-|  ![9](/screenshots/9.png)  | ![10](/screenshots/10.png) |
+|  ![8](/screenshots/8.png)  | ![10](/screenshots/10.png) |
 
 ## 🚀 Features
 
@@ -181,8 +179,8 @@ npm run serve:ssr
 
 ## 🧑‍💻 Author
 
-- **Ahmed Gaafer**\
-  [GitHub](https://github.com/ahmedgaafer1) | [LinkedIn](https://www.linkedin.com/in/ahmedgaafer/)
+- **Ahmed Yasser**\
+  [GitHub](https://github.com/Ahmedyasser7417) | [LinkedIn](https://linkedin.com/in/ahmedyasser2222)
 
 ---
 
